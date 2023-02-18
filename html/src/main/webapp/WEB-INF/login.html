@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Login | DocManager</title>
+    <link rel="stylesheet" th:href="@{/style.css}">
+</head>
+<body>
+<div class="centered_box">
+    <h1 class="center">DocManager login</h1>
+    <form action="." method="POST">
+        <table>
+            <tr>
+                <th>Username:</th>
+                <th></th>
+                <th><input name="username" placeholder="username" required
+                           type="text"></th>
+            </tr>
+            <tr>
+                <th>Password:</th>
+                <th></th>
+                <th><input name="password" placeholder="&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;"
+                           required
+                           type="password"><br></th>
+            </tr>
+        </table>
+        <div class="center">
+            <input type="submit" value="Login">
+        </div>
+        <p class="center error" th:text="${errorMessage}"></p>
+    </form>
+    <hr>
+    <p class="center">
+        Don't have an account? <a th:href="@{/signup/}">
+        <button type="button">sign-up</button>
+    </a>
+    </p>
+</div>
+</body>
+</html>

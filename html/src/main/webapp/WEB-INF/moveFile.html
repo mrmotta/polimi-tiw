@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Home | DocManager</title>
+    <link rel="stylesheet" th:href="@{/style.css}">
+</head>
+<body>
+<div class="centered_box">
+    <h1 class="center" th:if="${moving_file!=null}">Moving file</h1>
+    <h3 class="center" th:if="${moving_file!=null}"
+        th:text="'Moving file ' + ${moving_file.name()} + '.' + ${moving_file.extension()} +' from folder ' + ${source.name()} + '. Choose destination folder'"></h3>
+    <table class="center decorate" th:if="${moving_file!=null}">
+        <tr th:each="folder : ${folders}">
+            <td th:text="${folder.name()}"/>
+            <td><br>
+                <span th:each="subf : ${folder.subfolders()}"> <a
+                        th:href="@{'/home/move/destination/' + ${subf.id()} + '/' + ${moving_file.id()}}"
+                        th:if="${subf.id() != source.id()}"
+                        th:utext="${subf.name()} + '<br>'"></a>
+						<span th:class="disabled"
+                              th:if="${subf.id() == source.id()}" th:utext="${subf.name()} + '<br>'"></span>
+				</span></td>
+        </tr>
+    </table>
+    <p class="center error" th:text="${errorMessage}"></p>
+    <hr>
+    <p class="center">
+        Want to go back? <a th:href="@{../folder/{id}(id=${moving_file.parent()})}"
+                            th:if="${moving_file!=null}">
+        <button
+                type="button">folder
+        </button>
+    </a>
+
+        <a th:href="@{/home/}"
+           th:if="${moving_file==null}">
+            <button
+                    type="button">home
+            </button>
+        </a>
+    </p>
+</div>
+</body>
+</html>

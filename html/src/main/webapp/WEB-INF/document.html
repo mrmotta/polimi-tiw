@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Details | DocManager</title>
+    <link rel="stylesheet" th:href="@{/style.css}">
+</head>
+<body>
+<div class="centered_box">
+    <h1 class="center" th:if="${document != null}"
+        th:text="${document.name()}"></h1>
+    <table class="center decorate" th:if="${document != null}">
+        <tr>
+            <td><b>Name</b>:</td>
+            <td
+                    th:text="${document.name()} + '.' + ${document.extension()}"></td>
+        </tr>
+
+        <tr>
+            <td><b>Type</b>:</td>
+            <td th:text="${document.type()}"></td>
+        </tr>
+        <tr>
+            <td><b>Path</b>:</td>
+            <td th:text="${folder}"></td>
+        </tr>
+        <tr>
+            <td><b>Creation</b>:</td>
+            <td th:text="${document.creation()}"></td>
+        </tr>
+        <tr>
+            <td><b>Summary</b>:</td>
+            <td th:text="${document.summary()}"></td>
+        </tr>
+    </table>
+    <p class="center error" th:text="${errorMessage}"></p>
+    <hr>
+    <p class="center">
+        Want to go back? <a th:href="@{../{id}(id=${document.parent()})}"
+                            th:if="${document != null}">
+        <button type="button">folder</button>
+    </a> <a th:href="@{/home/}" th:if="${document == null}">
+        <button type="button">home</button>
+    </a>
+    </p>
+</div>
+</body>
+</html>

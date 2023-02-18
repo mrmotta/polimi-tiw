@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Content manager | DocManager</title>
+    <link rel="stylesheet" th:href="@{/style.css}">
+</head>
+<body>
+<div class="centered_box">
+
+    <h1 class="center">Create new folder</h1>
+    <form method="POST" th:action="@{/home/create/folder/}">
+        <table>
+            <tr>
+                <th>Name:</th>
+                <th></th>
+                <th><input id="name" name="name" placeholder="name" required
+                           type="text"></th>
+            </tr>
+            <tr>
+                <th>Parent:</th>
+                <th></th>
+                <th><select id="parent" name="parent">
+                    <option value="-1">No Parent</option>
+                    <option th:each="folder : ${folders}" th:text="${folder.name()}"
+                            th:value="${folder.id()}"></option>
+                </select></th>
+            </tr>
+            <tr>
+                <th>Creation date:</th>
+                <th></th>
+                <th><input id="date" name="date" required type="date"></th>
+            </tr>
+        </table>
+        <div class="center">
+            <input type="submit" value="Create folder">
+        </div>
+    </form>
+
+    <p class="center error" th:text="${errorMessageFolder}"></p>
+    <hr style="margin-top: 2em;">
+
+    <h1 class="center">Create new file</h1>
+    <form method="POST" th:action="@{/home/create/file/}">
+        <table>
+            <tr>
+                <th>Name:</th>
+                <th><input id="name" name="name" placeholder="name" required
+                           type="text"></th>
+            </tr>
+            <tr>
+                <th>Extension:</th>
+                <th><input id="ext" name="ext" placeholder="ext" required
+                           type="text"></th>
+            </tr>
+            <tr>
+                <th>Creation date:</th>
+                <th><input id="date" name="date" required type="date"></th>
+            </tr>
+            <tr>
+                <th>Summary:</th>
+                <th><input id="summary" name="summary" placeholder="summary"
+                           required type="text"></th>
+            </tr>
+            <tr>
+                <th>Type:</th>
+                <th><input id="type" name="type" placeholder="type" required
+                           type="text"></th>
+            </tr>
+            <tr>
+                <th>Parent:</th>
+                <th><select id="parent" name="parent">
+                    <option th:each="folder : ${subfolders}"
+                            th:text="${folder.value}" th:value="${folder.key}"></option>
+                </select></th>
+            </tr>
+        </table>
+        <div class="center">
+            <input type="submit" value="Create file">
+        </div>
+    </form>
+    <p class="center error" th:text="${errorMessageFile}"></p>
+    <hr>
+
+    <p class="center">
+        Want to go back? <a th:href="@{/home/}">
+        <button type="button">home</button>
+    </a>
+    </p>
+</div>
+</body>
+</html>

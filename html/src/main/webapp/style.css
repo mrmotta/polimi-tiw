@@ -1,0 +1,73 @@
+html, body {
+    height: 100%;
+}
+
+body {
+    overflow: hidden;
+    background-color: #191919;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+hr {
+    background-color: #191919;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+}
+
+table {
+    margin: 0 auto 1em;
+    border-collapse: collapse;
+}
+
+table th {
+    padding: 0.2em;
+    text-align: left;
+}
+
+table td {
+    padding: 0.2em;
+    text-align: left;
+    vertical-align: top;
+}
+
+.decorate tr:nth-child(odd) {
+    background-color: #373737;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul {
+    margin-top: 1em;
+    margin-bottom: 0;
+}
+
+.centered_box {
+    background-color: #282828;
+    border-radius: 1em;
+    padding-left: 1em;
+    padding-right: 1em;
+    box-shadow: 0 0 1em black;
+    height: auto;
+    color: white;
+    margin: 1em;
+}
+
+.center {
+    text-align: center;
+    position: relative;
+}
+
+.error {
+    color: red;
+}
+
+.disabled {
+    color: gray !important;
+}

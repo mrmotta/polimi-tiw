@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Folder | DocManager</title>
+    <link rel="stylesheet" th:href="@{/style.css}">
+</head>
+<body>
+<div class="centered_box">
+    <h1 class="center" th:text="${folderName}"></h1>
+    <table class="center decorate">
+        <tr th:each="file : ${files}">
+            <td style="font-weight: bold;" th:text="${file.name()} + '.' +  ${file.extension()}"/>
+            <td>></td>
+            <td><a th:href="@{document/{id}(id=${file.id()})}">access</a></td>
+            <td>></td>
+            <td><a th:href="@{../move/{id}(id=${file.id()})}">move</a></td>
+    </table>
+    <p class="center error" th:text="${errorMessage}"></p>
+    <hr>
+    <p class="center">
+        Want to go back? <a th:href="@{/home/}">
+        <button type="button">home</button>
+    </a>
+    </p>
+</div>
+</body>
+</html>

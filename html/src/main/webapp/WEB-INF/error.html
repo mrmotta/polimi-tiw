@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="ISO-8859-1">
+    <title th:text="'Error ' + ${code} + ' | DocManager'"></title>
+    <link rel="stylesheet" th:href="@{/style.css}">
+</head>
+<body>
+<div class="centered_box">
+    <h1 class="center error" style="font-weight: bold;" th:text="${code} + ': ' +  ${message}"></h1>
+    <h3 style="text-align: justify; text-justify: inter-word;" th:text="${description}"></h3>
+    <hr>
+    <p class="center">
+        Return to safe page? <a th:href="@{/}">
+        <button type="button">return</button>
+    </a>
+    </p>
+</div>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Home | DocManager</title>
+    <link rel="stylesheet" th:href="@{/style.css}">
+</head>
+<body>
+<div class="centered_box">
+    <h1 class="center"
+        th:text="'Welcome, ' + ${session.user.username()} + '!'"></h1>
+    <h2 class="center">Here are your folders:</h2>
+    <table class="center decorate">
+        <tr th:each="folder : ${folders}">
+            <td style="font-weight: bold;" th:text="${folder.name()}"/>
+            <td>
+                <ul>
+                    <li th:each="subf : ${folder.subfolders()}"><a
+                            th:href="@{folder/{id}(id=${subf.id()})}"
+                            th:utext="${subf.name()} + '<br>'"></a>
+                </ul>
+            </td>
+        </tr>
+    </table>
+    <div class="center">
+        <a th:href="@{create/}">
+            <button type="button">Content
+                management
+            </button>
+        </a>
+    </div>
+    <p class="center error" th:text="${errorMessage}"></p>
+    <hr>
+    <p class="center">
+        Ended your session? <a th:href="@{/logout/}">
+        <button
+                type="button">logout
+        </button>
+    </a>
+    </p>
+</div>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="ISO-8859-1" />
+    <title>Login | DocManager</title>
+    <link href="/ria/style.css" rel="stylesheet" />
+    <script src="/ria/scripts/login.js"></script>
+  </head>
+  <body>
+    <div class="centered_box">
+      <h1 class="center">DocManager login</h1>
+      <form>
+        <table>
+          <tr>
+            <th>Username:</th>
+            <th></th>
+            <th>
+              <input
+                id="username"
+                name="username"
+                placeholder="username"
+                required
+                type="text"
+              />
+            </th>
+          </tr>
+          <tr>
+            <th>Password:</th>
+            <th></th>
+            <th>
+              <input
+                id="password"
+                name="password"
+                placeholder="&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;"
+                required
+                type="password"
+              /><br />
+            </th>
+          </tr>
+        </table>
+        <div class="center">
+          <input
+            id="submit"
+            onclick="checkLogin();"
+            type="button"
+            value="Login"
+          />
+        </div>
+        <p class="center error" id="errorMessage"></p>
+      </form>
+      <hr />
+      <p class="center">
+        Don't have an account?
+        <a href="/ria/signup/">
+          <button type="button">sign-up</button>
+        </a>
+      </p>
+    </div>
+  </body>
+</html>

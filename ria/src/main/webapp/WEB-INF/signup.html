@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="ISO-8859-1"/>
+    <title>Sign-up | DocManager</title>
+    <link href="/ria/style.css" rel="stylesheet"/>
+    <script src="/ria/scripts/signup.js"></script>
+</head>
+<body>
+<div class="centered_box">
+    <h1 class="center">DocManager sign-up</h1>
+    <form>
+        <table>
+            <tr>
+                <th>Username:</th>
+                <th></th>
+                <th>
+                    <input
+                            id="username"
+                            name="username"
+                            placeholder="username"
+                            required
+                            type="text"
+                    />
+                </th>
+            </tr>
+            <tr>
+                <th>Email:</th>
+                <th></th>
+                <th>
+                    <input
+                            id="email"
+                            name="email"
+                            placeholder="mail@example.com"
+                            required
+                            type="text"
+                    />
+                </th>
+            </tr>
+            <tr>
+                <th>Password:</th>
+                <th></th>
+                <th>
+                    <input
+                            id="password"
+                            name="password"
+                            placeholder="&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;"
+                            required
+                            type="password"
+                    /><br/>
+                </th>
+            </tr>
+            <tr>
+                <th>Repeat:</th>
+                <th></th>
+                <th>
+                    <input
+                            id="repeat_password"
+                            name="repeat_password"
+                            placeholder="&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;"
+                            required
+                            type="password"
+                    /><br/>
+                </th>
+            </tr>
+        </table>
+        <div class="center">
+            <input onclick="checkSignup()" type="button" value="Sign-up"/>
+        </div>
+        <p class="center error" id="errorMessage"></p>
+    </form>
+    <hr/>
+    <p class="center">
+        Already have an account?
+        <a href="/ria/login/">
+            <button type="button">login</button>
+        </a>
+    </p>
+</div>
+</body>
+</html>
